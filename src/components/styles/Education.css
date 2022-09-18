@@ -1,0 +1,28 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form > label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form > label > input {
+    width: 500px;
+    padding: 5px;
+}
+
+.heading {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.main-tasks {
+    height: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

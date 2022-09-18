@@ -1,0 +1,18 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form > label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form > label > input,
+.form > label > textarea {
+    width: 500px;
+    padding: 5px;
+}
+
