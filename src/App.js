@@ -7,18 +7,51 @@ import Experience from './components/Experience';
 import Cv from './components/Cv';
 
 class App extends React.Component {
+  constructor() {
+    super()
+
+    this.handleChange = this.handleChange.bind(this)
+    this.state = {
+      name: '',
+      surname: '',
+      email: '',
+      phone: '',
+      schoolName: '',
+      studyTitle: '',
+      studyStartDate: '',
+      studyEndDate: '',
+      companyName: '',
+      positionTitle: '',
+      mainTasks: '',
+      workStartDate: '',
+      workEndDate: '',
+      education: [],
+      experience: []
+    }
+    
+  }
+
+  handleChange(event) {
+    this.setState(prevState => {
+      console.log(prevState)
+      return {
+        ...prevState,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
   
   render() {
     return(
       <div className='app--container'>
-        <Header />
+        <Header/>
         <div className='page'>
-          <GeneralInfo />
-          <Education />
-          <Experience />
+          <GeneralInfo data={this.state} handleChange={this.handleChange}/>
+          <Education data={this.state} handleChange={this.handleChange}/>
+          <Experience data={this.state}  handleChange={this.handleChange}/>
           <button className='create-button'>Create</button>
         </div>
-      <Cv />
+      <Cv data={this.state}/>
       </div>
     )
   }
