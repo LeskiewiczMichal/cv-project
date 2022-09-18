@@ -4,13 +4,16 @@
   box-sizing: border-box;
 }
 
+
 .app--container {
   width: 100vw;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   background-color: #e9e4e4;
+  min-height: 100vh;
 }
 
 .page {
@@ -20,6 +23,7 @@
   width: 70%;
   padding: 35px;
   gap: 50px;
+  min-height: 100%;
 }
 
 .create-button {

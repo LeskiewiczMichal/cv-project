@@ -1,0 +1,75 @@
+.bold {
+    font-weight: bold;
+}
+
+.bigger {
+    font-size: 22px;
+}
+
+.cv--container {
+   display: flex;
+   /* align-self: stretch; 
+   justify-self: stretch; */
+   /* flex:1 */
+    height: 100%;
+    width: 80vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex: 1;
+    background-color: #d6d1d1;
+    align-items: stretch;
+}
+
+.cv--left {
+    background-color: rgb(148, 148, 216);
+    width: 20%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.cv--section {
+    display: flex;
+    flex-direction: column;
+}
+
+.cv--name {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.cv--contact {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.cv--email-heading,
+.cv--phone-heading {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cv--email-text {
+    margin-bottom: 5px;
+}
+
+.cv--right {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cv--section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cv--section-heading {
+    font-weight: bold;
+    font-size: 25px;
+}

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import GeneralInfo from './components/GeneralInfo';
 import Education from './components/Education';
 import Experience from './components/Experience';
+import Cv from './components/Cv';
 
 class App extends React.Component {
   
@@ -17,6 +18,7 @@ class App extends React.Component {
           <Experience />
           <button className='create-button'>Create</button>
         </div>
+      <Cv />
       </div>
     )
   }
