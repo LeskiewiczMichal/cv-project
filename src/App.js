@@ -8,9 +8,11 @@ import Cv from './components/Cv';
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
 
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.addEducation = this.addEducation.bind(this);
+    this.addExperience = this.addExperience.bind(this);
     this.state = {
       name: '',
       surname: '',
@@ -26,34 +28,74 @@ class App extends React.Component {
       workStartDate: '',
       workEndDate: '',
       education: [],
-      experience: []
-    }
-    
+      experience: [],
+    };
   }
 
   handleChange(event) {
-    this.setState(prevState => {
-      console.log(prevState)
+    this.setState((prevState) => {
       return {
         ...prevState,
-        [event.target.name]: event.target.value
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
+
+  addEducation() {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        schoolName: '',
+        studyTitle: '',
+        studyStartDate: '',
+        studyEndDate: '',
+        education: [
+          ...prevState.education,
+          {
+            schoolName: prevState.schoolName,
+            studyTitle: prevState.studyTitle,
+            studyStartDate: prevState.studyStartDate,
+            studyEndDate: prevState.studyEndDate
+          },
+        ],
+      };
+    });
+  }
+
+  addExperience() {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        companyName: '',
+        positionTitle: '',
+        mainTasks: '',
+        workStartDate: '',
+        workEndDate: '',
+        experience: [...prevState.experience, {
+          companyName: prevState.companyName,
+          positionTitle: prevState.positionTitle,
+          mainTasks: prevState.mainTasks,
+          workStartDate: prevState.workStartDate,
+          workEndDate: prevState.workEndDate
+        }]
       }
     })
+    console.log(this.state)
   }
-  
+
   render() {
-    return(
-      <div className='app--container'>
-        <Header/>
-        <div className='page'>
-          <GeneralInfo data={this.state} handleChange={this.handleChange}/>
-          <Education data={this.state} handleChange={this.handleChange}/>
-          <Experience data={this.state}  handleChange={this.handleChange}/>
-          <button className='create-button'>Create</button>
+    return (
+      <div className="app--container">
+        <Header />
+        <div className="page">
+          <GeneralInfo data={this.state} handleChange={this.handleChange} />
+          <Education data={this.state} handleChange={this.handleChange} addEducation={this.addEducation}/>
+          <Experience data={this.state} handleChange={this.handleChange} addExperience={this.addExperience}/>
+          <button className="create-button">Create</button>
         </div>
-      <Cv data={this.state}/>
+        <Cv data={this.state} />
       </div>
-    )
+    );
   }
 }
 

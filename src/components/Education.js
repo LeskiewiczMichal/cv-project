@@ -49,7 +49,7 @@ export default class Education extends React.Component {
             />
           </label>
         </form>
-        <button className='education--button'>Confirm</button>
+        <button className='education--button' onClick={this.props.addEducation}>Confirm</button>
       </div>
     );
   }
