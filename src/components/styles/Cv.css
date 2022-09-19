@@ -22,7 +22,7 @@
 
 .cv--left {
     background-color: rgb(148, 148, 216);
-    width: 20%;
+    min-width: 20%;
     padding: 20px;
     display: flex;
     flex-direction: column;
