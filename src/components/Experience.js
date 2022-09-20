@@ -61,7 +61,12 @@ export default class Experience extends React.Component {
             />
           </label>
         </form>
-        <button className='experience--button' onClick={this.props.addExperience}>Confirm</button>
+        <button
+          className="experience--button"
+          onClick={this.props.addExperience}
+        >
+          Confirm
+        </button>
       </div>
     );
   }

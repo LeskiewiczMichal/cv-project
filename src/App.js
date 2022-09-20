@@ -9,11 +9,11 @@ import { nanoid } from 'nanoid';
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.handleChange = this.handleChange.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.addExperience = this.addExperience.bind(this);
-    this.createCv = this.createCv.bind(this)
+    this.createCv = this.createCv.bind(this);
     this.state = {
       name: '',
       surname: '',
@@ -99,28 +99,33 @@ class App extends React.Component {
   }
 
   render() {
-    return(
-    <div className="app--container">
-{!this.state.createCv ? <div className='app--render-container'>
-  <Header />
-              <div className="page">
-                <GeneralInfo data={this.state} handleChange={this.handleChange} />
-                <Education
-                  data={this.state}
-                  handleChange={this.handleChange}
-                  addEducation={this.addEducation}
-                />
-                <Experience
-                  data={this.state}
-                  handleChange={this.handleChange}
-                  addExperience={this.addExperience}
-                />
-                <button className="create-button" onClick={this.createCv}>Create</button>
-              </div>
-</div> :             <Cv data={this.state} />}
-
+    return (
+      <div className="app--container">
+        {!this.state.createCv ? (
+          <div className="app--render-container">
+            <Header />
+            <div className="page">
+              <GeneralInfo data={this.state} handleChange={this.handleChange} />
+              <Education
+                data={this.state}
+                handleChange={this.handleChange}
+                addEducation={this.addEducation}
+              />
+              <Experience
+                data={this.state}
+                handleChange={this.handleChange}
+                addExperience={this.addExperience}
+              />
+              <button className="create-button" onClick={this.createCv}>
+                Create
+              </button>
+            </div>
+          </div>
+        ) : (
+          <Cv data={this.state} />
+        )}
       </div>
-    )
+    );
   }
 }
 

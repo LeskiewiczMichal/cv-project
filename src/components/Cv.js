@@ -16,45 +16,43 @@ export default class Cv extends React.Component {
           <span className="cv--phone-text">{this.props.data.phone}</span>
         </section>
         <section className="cv--right">
-        <h3 className="cv--section-heading">Education</h3>
+          <h3 className="cv--section-heading">Education</h3>
           {this.props.data.education.map((element) => {
             return (
               <div className="cv--section" key={element.id}>
-                {/* <h3 className="cv--section-heading">Education</h3> */}
                 <span>
-                  <b>School name: {element.schoolName}</b>{' '}
+                  <b>School name:</b> {element.schoolName}
                 </span>
                 <span>
-                  <b>Study title: {element.studyTitle}</b>{' '}
+                  <b>Study title:</b> {element.studyTitle}
                 </span>
                 <span>
-                  <b>From: {element.studyStartDate}</b>{' '}
+                  <b>From:</b> {element.studyStartDate}
                 </span>
                 <span>
-                  <b>To: {element.studyEndDate}</b>{' '}
+                  <b>To:</b> {element.studyEndDate}
                 </span>
               </div>
             );
           })}
-            <h3 className="cv--section-heading">Experience</h3>
+          <h3 className="cv--section-heading">Experience</h3>
           {this.props.data.experience.map((element) => {
             return (
               <div className="cv--section" key={element.id}>
-                {/* <h3 className="cv--section-heading">Experience</h3> */}
                 <span>
-                  <b>Company name: {element.companyName}</b>
+                  <b>Company name:</b> {element.companyName}
                 </span>
                 <span>
-                  <b>Position title: {element.positionTitle}</b> 
+                  <b>Position title:</b> {element.positionTitle}
                 </span>
                 <span>
-                  <b>Main tasks: {element.mainTasks}</b> 
+                  <b>Main tasks:</b> {element.mainTasks}
                 </span>
                 <span>
-                  <b>From: {element.workStartDate}</b> 
+                  <b>From:</b> {element.workStartDate}
                 </span>
                 <span>
-                  <b>To: {element.workEndDate}</b> 
+                  <b>To:</b> {element.workEndDate}
                 </span>
               </div>
             );
