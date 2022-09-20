@@ -16,47 +16,45 @@ export default class Cv extends React.Component {
           <span className="cv--phone-text">{this.props.data.phone}</span>
         </section>
         <section className="cv--right">
+        <h3 className="cv--section-heading">Education</h3>
           {this.props.data.education.map((element) => {
             return (
               <div className="cv--section" key={element.id}>
-                <h3 className="cv--section-heading">Education</h3>
+                {/* <h3 className="cv--section-heading">Education</h3> */}
                 <span>
                   <b>School name: {element.schoolName}</b>{' '}
-                  {this.props.data.schoolName}
                 </span>
                 <span>
                   <b>Study title: {element.studyTitle}</b>{' '}
-                  {this.props.data.studyTitle}
                 </span>
                 <span>
                   <b>From: {element.studyStartDate}</b>{' '}
-                  {this.props.data.studyStartDate}
                 </span>
                 <span>
                   <b>To: {element.studyEndDate}</b>{' '}
-                  {this.props.data.studyEndDate}
                 </span>
               </div>
             );
           })}
-          {this.props.data.education.map((element) => {
+            <h3 className="cv--section-heading">Experience</h3>
+          {this.props.data.experience.map((element) => {
             return (
               <div className="cv--section" key={element.id}>
-                <h3 className="cv--section-heading">Experience</h3>
+                {/* <h3 className="cv--section-heading">Experience</h3> */}
                 <span>
-                  <b>Company name:</b> {this.props.data.companyName}
+                  <b>Company name: {element.companyName}</b>
                 </span>
                 <span>
-                  <b>Position title:</b> {this.props.data.positionTitle}
+                  <b>Position title: {element.positionTitle}</b> 
                 </span>
                 <span>
-                  <b>Main tasks:</b> {this.props.data.mainTasks}
+                  <b>Main tasks: {element.mainTasks}</b> 
                 </span>
                 <span>
-                  <b>From:</b> {this.props.data.workStartDate}
+                  <b>From: {element.workStartDate}</b> 
                 </span>
                 <span>
-                  <b>To:</b> {this.props.data.workEndDate}
+                  <b>To: {element.workEndDate}</b> 
                 </span>
               </div>
             );
