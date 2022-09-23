@@ -16,7 +16,7 @@ export default function Cv(props) {
       </section>
       <section className="cv--right">
         <h3 className="cv--section-heading">Education</h3>
-        {props.data.education.map((element) => {
+        {props.confirmedInfo.education.map((element) => {
           return (
             <div className="cv--section" key={element.id}>
               <span>
@@ -35,7 +35,7 @@ export default function Cv(props) {
           );
         })}
         <h3 className="cv--section-heading">Experience</h3>
-        {props.data.experience.map((element) => {
+        {props.confirmedInfo.experience.map((element) => {
           return (
             <div className="cv--section" key={element.id}>
               <span>

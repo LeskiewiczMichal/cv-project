@@ -27,84 +27,111 @@ function App() {
     createCv: false,
   });
 
+  const [formData, setFormData] = useState({
+    name: '',
+    surname: '',
+    email: '',
+    phone: '',
+    schoolName: '',
+    studyTitle: '',
+    studyStartDate: '',
+    studyEndDate: '',
+    companyName: '',
+    positionTitle: '',
+    mainTasks: '',
+    workStartDate: '',
+    workEndDate: '',
+  });
+  const [createCvState, setCreateCvState] = useState(false);
+  const [confirmedInfo, setConfirmedInfo] = useState({
+    education: [],
+    experience: [],
+  });
+
   function handleChange(event) {
-    setState((prevState) => {
+    setFormData((prevData) => {
       return {
-        ...prevState,
+        ...prevData,
         [event.target.name]: event.target.value,
       };
     });
   }
 
   function addEducation() {
-    setState((prevState) => {
+    setConfirmedInfo((prevConfirmedInfo) => {
       return {
-        ...prevState,
+        ...prevConfirmedInfo,
+        education: [
+          ...prevConfirmedInfo.education,
+          {
+            id: nanoid(),
+            schoolName: formData.schoolName,
+            studyTitle: formData.studyTitle,
+            studyStartDate: formData.studyStartDate,
+            studyEndDate: formData.studyEndDate,
+          },
+        ],
+      };
+    });
+
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
         schoolName: '',
         studyTitle: '',
         studyStartDate: '',
         studyEndDate: '',
-        education: [
-          ...prevState.education,
-          {
-            id: nanoid(),
-            schoolName: prevState.schoolName,
-            studyTitle: prevState.studyTitle,
-            studyStartDate: prevState.studyStartDate,
-            studyEndDate: prevState.studyEndDate,
-          },
-        ],
       };
     });
   }
 
   function addExperience() {
-    setState((prevState) => {
+    setConfirmedInfo((prevConfirmedInfo) => {
       return {
-        ...prevState,
+        ...prevConfirmedInfo,
+        experience: [
+          ...prevConfirmedInfo.experience,
+          {
+            id: nanoid(),
+            companyName: formData.companyName,
+            positionTitle: formData.positionTitle,
+            mainTasks: formData.mainTasks,
+            workStartDate: formData.workStartDate,
+            workEndDate: formData.workEndDate,
+          },
+        ],
+      };
+    });
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
         companyName: '',
         positionTitle: '',
         mainTasks: '',
         workStartDate: '',
         workEndDate: '',
-        experience: [
-          ...prevState.experience,
-          {
-            id: nanoid(),
-            companyName: prevState.companyName,
-            positionTitle: prevState.positionTitle,
-            mainTasks: prevState.mainTasks,
-            workStartDate: prevState.workStartDate,
-            workEndDate: prevState.workEndDate,
-          },
-        ],
       };
     });
   }
 
   function createCv() {
-    setState((prevState) => {
-      return {
-        ...prevState,
-        createCv: true,
-      };
-    });
+    setCreateCvState((prevState) => !prevState)
   }
 
   return (
     <div className="app--container">
-      {!state.createCv ? (
+      {!createCvState ? (
         <div className="app--render-container">
           <Header />
           <div className="page">
-            <GeneralInfo data={state} handleChange={handleChange} />
+            <GeneralInfo data={formData} handleChange={handleChange} />
             <Education
-              data={state}
+              data={formData}
               handleChange={handleChange}
               addEducation={addEducation}
             />
             <Experience
-              data={state}
+              data={formData}
               handleChange={handleChange}
               addExperience={addExperience}
             />
@@ -114,7 +141,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <Cv data={state} />
+        <Cv data={formData} confirmedInfo={confirmedInfo} />
       )}
     </div>
   );
